@@ -1,0 +1,31 @@
+MAC802_11 what's new LOG:
+
+Backup: 60 (30.10.2003)
+- new version 0.2.0 of the configuration tool (still has TODOs)
+
+Backup: 59 (28.10.2003)
+- new version of GENER\StaSYS.c;
+  corrected bug in SDL system, process MIF, BACKOFF, recvRTS. 
+
+Backup: 58 (22.10.2003)
+- changed remote log-output (added XML tag LOG in InstanceOutputFunc())
+
+Backup: 57 (21.10.2003)
+- added MS Excel server configuration file
+
+Backup: 56 (20.10.2003)
+- configuration concept was changed: all instances have to be configured
+  by environment variables
+
+Backup: 55 (17.10.2003)
+- renamed 'mac_inst.h' into 'sta_inst.h' (common header for STACONF>
+
+Backup: 53 (14.10.2003)
+- working version of SockMonitor
+
+Backup: 39 (22.09.2003)
+- last version w/o encoding library (DLL)
+
+Backup: 10 (04.08.2003)
+- removed bug from GetDataInTx(..), incorrect detection of DA
+- removed bug from PktCopy(..), it didn't copy valid packets

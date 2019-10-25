@@ -1,0 +1,84 @@
+; this is a MAC STA config file, size has to be less than 4096 bytes
+; MD: 07.08.2003
+; LE: 24.09.2003
+
+STA_NAME 	   ZEUS ; name of the station
+MAC_ADDR  0 0 0 0 15 01 ; MAC address of the STA
+
+; -----------------------------------------------------------------------------
+; CFG of the emulation
+; -----------------------------------------------------------------------------
+
+FragSize 	128     ; fragment size [bytes]
+;FragSize	2346	; fragment size [bytes] (24.09.2003)
+TX_RATE		6	; default Tx rate [Mbits/sec] (08.09.2003)
+L3I_ADDR 	C:\Kolevatov\EMU\DATA\01_L3InAddr.txt	;
+L3O_MPDU	C:\Kolevatov\EMU\RECV\01_%s_seq%03d.txt	; data sequence (MPDU) files
+
+; -----------------------------------------------------------------------------
+; scenario (08.09.2003)
+; -----------------------------------------------------------------------------
+
+SCENARIO        C:\Kolevatov\EMU\scenary01.txt
+EVENT_ID_LIST   C:\Kolevatov\EMU\event_ids.txt
+
+; -----------------------------------------------------------------------------
+; Total traffic
+; -----------------------------------------------------------------------------
+L3I 	C:\Kolevatov\EMU\DATA\01_L3In.txt
+L3O	C:\Kolevatov\EMU\Temp\01_L3Out.txt
+LPCI	C:\Kolevatov\EMU\Temp\01_LPCIn.txt
+LPCO	C:\Kolevatov\EMU\Temp\01_LPCOut.txt
+
+; -----------------------------------------------------------------------------
+; SPYs configuration (14.08.2003)
+; -----------------------------------------------------------------------------
+SPY0  C:\Kolevatov\EMU\LOG\01_SPY.txt	  ; spy layer beetwen MAC & PHY_CTRL
+SPY1  C:\Kolevatov\EMU\LOG\01_MAC_SDL.txt ; events in MAC process
+SPY2  C:\Kolevatov\EMU\LOG\01_MAC.txt	  ; spy #2
+
+; -----------------------------------------------------------------------------
+; Medium file
+; -----------------------------------------------------------------------------
+PROT_EXCH_CMDS   C:\Kolevatov\EMU\Temp\srv_pr_cmd.dat  ; protocol file
+PROT_EXCH_ANSWRS C:\Kolevatov\EMU\Temp\srv_pr_ans.dat  ; protocol file
+PROT_EXCH_FLAG   C:\Kolevatov\EMU\Temp\srv_prot_flag.dat  ; protocol file
+
+DEBUG_MSG 	1 ; show debug messages (1 - yes, 0 - no)
+
+; -----------------------------------------------------------------------------
+; STA debug (11.09.2003)
+; -----------------------------------------------------------------------------
+MAC_MAX_CW_VALUE        1	; maximal contention window value:
+				; '-1' - parameter is not used
+
+; =============================================================================
+; class MAC parameters (12.09.2003)
+; =============================================================================
+SDL_LOGGER     C:\Kolevatov\EMU\LOG\01exp_sdl.txt 	; (20.10.2003)
+MAC_LOGGER     C:\Kolevatov\EMU\LOG\01procmac.txt
+MAC_LOGGER_IO  C:\Kolevatov\EMU\LOG\01procmac_io.txt
+MAC_LOGGER_ST  C:\Kolevatov\EMU\LOG\01procmac_st.txt
+
+; -----------------------------------------------------------------------------
+; Logging (08.10.2003)
+; -----------------------------------------------------------------------------
+LOG_OUTPUT	    2		; 0 - none, 1 - file, 2 - socket
+;LOG_SOCKET_IP 	    localhost	; ip address
+LOG_SOCKET_IP 	    bchk2z7c	; ip address - Matthias
+LOG_SOCKET_PORT	    5001	; port
+LOG_SOCKET_RECON    1		; number of reconnections
+;LOG_SOCKET_IP	bchk1ysc.bch.siemens.de
+
+; -----------------------------------------------------------------------------
+; CFG of the MIB (used default parametrs)
+; -----------------------------------------------------------------------------
+;RTSThreshold		3000	; bytes
+RTSThreshold		140	; bytes (24.09.2003)
+ShortRetryLimit		7	; retransmissions
+LongRetryLimit		4	; retransmissions
+;FragmentationThreshold	2346	; bytes
+FragmentationThreshold	128	; bytes (25.09.2003)
+
+MaxTransmitMSDULifetime	512	; time units
+MaxReceiveLifetime	512	; time units

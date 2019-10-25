@@ -1,0 +1,28 @@
+; this is a MEDIUM SERVER config file, size has to be less than 2048 bytes
+; MD: 18.08.2003
+; LE: 25.09.2003
+
+; server's protocol file
+
+PROT_EXCH_CMDS   C:\Kolevatov\EMU\Temp\srv_pr_cmd.dat  ; protocol file
+PROT_EXCH_ANSWRS C:\Kolevatov\EMU\Temp\srv_pr_ans.dat  ; protocol file
+PROT_EXCH_FLAG   C:\Kolevatov\EMU\Temp\srv_prot_flag.dat  ; protocol file
+
+; -----------------------------------------------------------------------------
+; MDM server CFG
+; -----------------------------------------------------------------------------
+DEBUG_MSG 	0	; show debug messages (1 - yes, 0 - no)
+DEBUG_MSG_MSD	0	; show message sequence diagram (1 - yes, 0 - no)
+MAX_CLI		2       ; MAX # of supported CLIents, if current number of
+			; registred CLIs if lower than max. number
+			; server will generate a broadcast poll each iteration
+SAVE_LOG	0	; save screen output into LOG-file (1-yes, 0-no)
+SRV_LOG C:\Kolevatov\EMU\LOG\srv_log.txt  ; log file (18.09.2003)
+; -----------------------------------------------------------------------------
+; SRV timeout behavior (11.09.2003)
+; -----------------------------------------------------------------------------
+SDL_SIM_SUPPORT 1	; 1 - waits unlimited time for CLI's answer 
+                        ; 0 - unregisters CLI, if no response from CLI within 
+                        ; Timeout interval
+; -----------------------------------------------------------------------------
+
